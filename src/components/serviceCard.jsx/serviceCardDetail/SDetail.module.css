@@ -1,0 +1,28 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color:#00000088;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modalContainer {
+  flex: 0 1 500px;
+  height:300px;
+  position: relative;
+  padding: 40px;
+  border-radius: 20px;
+  background-color:antiquewhite;
+  box-shadow: 0px 4px 4px 0px var(--modal-box-shadow);
+  margin-inline: var(--container-inline-padding);
+}
+
+
+.closeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}

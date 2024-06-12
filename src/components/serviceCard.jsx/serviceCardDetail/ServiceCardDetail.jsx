@@ -1,21 +1,29 @@
 import { useGetSingleServiceQuery } from "../../../apiStore/serviceApi";
-import {memo} from "react"
+import { memo } from "react";
+import styles from "./SDetail.module.css";
+import LogoX from "../../../assets/icons/close.png";
 
 const ServiceCardDetail = memo(({ cardId, onclick }) => {
-  const { data, error, isLoading } = useGetSingleServiceQuery(cardId, {
+  const { data } = useGetSingleServiceQuery(cardId, {
     skip: !cardId,
   });
 
-  console.log(data, error, isLoading);
-
   return (
     data && (
-      <>
-        <h1 onClick={onclick}>{data.title}</h1>
-        <p>{data.detailDescription}</p>
-      </>
+      <div className={styles.backdrop} onClick={onclick}>
+        <div className={styles.modalContainer}>
+          <img
+            className={styles.closeButton}
+            src={LogoX}
+            alt={LogoX}
+            onClick={onclick}
+          />
+          <h3>{data.title}</h3>
+          <p>{data.detailDescription}</p>
+        </div>
+      </div>
     )
   );
-})
+});
 
 export default ServiceCardDetail;

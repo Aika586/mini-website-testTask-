@@ -1,29 +1,29 @@
-import { useState, memo, useCallback } from "react";
+import { useState, memo } from "react";
 import ServiceCardDetail from "./serviceCardDetail/ServiceCardDetail";
+import styles from "./ServiceCard.module.css";
 
 const ServiceCard = memo(({ id, title, image, description }) => {
   const [cardId, setCardId] = useState(null);
   const [clickCard, setClickCard] = useState(false);
-  console.log(cardId);
-
+ 
+  //EVENT HANDLERS
   const handleClick = () => setCardId(id);
   const cardClickHandler = () => setClickCard(true);
-
   const handleModelClick = () => setCardId(null);
 
   return (
-    <div onClick={cardClickHandler}>
-      <ul>
+    <div className={ styles.card_wrapper} onClick={cardClickHandler}>
+      <ul className={clickCard ? `${styles.card} ${styles.clicked}` : styles.card}>
         <li>
           <img src={image} alt={image} />
         </li>
-        <li>{title}</li>
+        <li className={styles.title}>{title}</li>
         {clickCard && (
           <>
             <li>
-              <p>{description}</p>
+              <p className={styles.description}>{description}</p>
             </li>
-            <h3 onClick={handleClick}>Подробнее</h3>
+            <h3 onClick={handleClick}>ПОДРОБНЕЕ</h3>
           </>
         )}
         {cardId && (
