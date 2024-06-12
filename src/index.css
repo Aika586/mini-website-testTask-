@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  font-family:"Roboto Condensed", sans-serif; 
+  --main-color:#2B4074;
+  --h1-fontSize:48px;
+  --serviceTitle-size:24px;
+  --serviceText-size:18px;
+  --SNameTitle-size:16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+
